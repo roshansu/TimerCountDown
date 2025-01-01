@@ -5,8 +5,7 @@ CustomDate = "2024-12-31T00:00:00";
 const button = document.querySelector("button");
 
 button.addEventListener("click", () => {
-    const hide = document.getElementById("navDialog");
-    hide.style.display = "flex";
+    
     const input1 = document.getElementById("year");
     const input2 = document.getElementById("month");
     const input3 = document.getElementById("din");
@@ -14,27 +13,19 @@ button.addEventListener("click", () => {
     const year = input1.value;
     const month = input2.value;
     const day = input3.value;
-
-    CustomDate =year+"-"+month+"-"+day+"T00:00:00";
-
-dateCalc(CustomDate, "Days1", "Hour1", "Minute1", "Second1");
+    if(year>=2024 && month<=12 && day<=31){
+        const hide = document.getElementById("navDialog");
+        hide.style.display = "flex";
+        CustomDate =year+"-"+month+"-"+day+"T00:00:00";
+    
+        dateCalc(CustomDate, "Days1", "Hour1", "Minute1", "Second1");
+    }
+    else{
+        alert("Please enter a valid date");
+    }
+   
 
 });
-
-//  function getInput(){
-// const year = document.getElementById("year").value;
-// const month = document.getElementById("month").value;
-// const day = document.getElementById("din").value;
-// if(year>=2024){
-//     hide.style.display = "flex";
-// }
-
-// CustomDate =year+"-"+month+"-"+day+"T00:00:00";
-
-// dateCalc(CustomDate, "Days1", "Hour1", "Minute1", "Second1");
-
-// };
-
 
 
 function dateCalc(d, d1, h, m, s){
